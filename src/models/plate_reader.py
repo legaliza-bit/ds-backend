@@ -1,17 +1,12 @@
-import os
 import numpy as np
-import pandas as pd
 import torch
 from torch import nn
-from torch.utils.data import Dataset, DataLoader
 from torchvision import transforms as T
-from torchvision.models import resnet18, alexnet, vgg16, googlenet
-from torchvision.transforms.functional import to_tensor
-from PIL import Image, UnidentifiedImageError
+from torchvision.models import resnet18
+from PIL import Image
 
-import warnings
 
-DEVICE=torch.device('cpu')
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 MEAN = np.array([0.485, 0.456, 0.406])
 STD = np.array([0.229, 0.224, 0.225])
